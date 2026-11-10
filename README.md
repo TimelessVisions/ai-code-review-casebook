@@ -7,15 +7,21 @@ A small tool for grading AI-written fixes, and a set of 15 bug cases to grade th
 Give `casebook` a candidate fix (from any model, or from you) and it returns a review in reviewer format: **verdict first, then the smallest input that breaks it**. It judges the fix with example tests plus property-based tests that try hundreds of generated inputs, so a fix that only works for the example in the prompt does not pass.
 
 ```console
-$ casebook grade 02 candidate.py
+$ casebook grade 02 candidate.py      # candidate.py = the buggy cap() from case 02
 # Case 02: Cap a message at 200 characters by slicing bytes
 
-Candidate: `candidate.py`
+Candidate: `candidate.py`  
 Severity if wrong: medium · CWE-135
 
-**Verdict:** reject. 1 of 3 tests fail.
-- `test_multibyte_text_does_not_crash`: UnicodeDecodeError: 'utf-8' codec can't decode byte ...
+**Verdict:** reject. 3 of 3 tests fail.
+
+- `test_multibyte_character_at_the_cut_does_not_crash`: UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc3 in position 199: unexpected end of data
+- `test_caps_characters_not_bytes`: AssertionError: assert 'éééééééééééé...ééééééééééééé' == 'éééééééééééé...ééééééééééééé'
+- `test_is_a_prefix_of_at_most_200_characters`: ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  - smallest breaking input found: `s='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaéééééééééééa'`
 ```
+
+That output is a real run. Hypothesis found two distinct failures (a crash and a wrong length) and reports the shrunk input for one of them: 190 characters that take 201 bytes, so cutting at byte 200 returns 189 characters instead of 190.
 
 ## Try it
 

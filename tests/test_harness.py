@@ -56,6 +56,7 @@ def test_a_wrong_fix_is_rejected_with_a_review():
     assert not result.passed and result.failures
     text = verdict(result)
     assert "**Verdict:** reject" in text and "CWE-135" in text
+    assert "smallest breaking input found" in text
 
 
 def test_a_correct_fix_is_accepted():
@@ -77,7 +78,9 @@ def test_a_plausible_but_wrong_fix_is_caught_by_the_property_test(tmp_path):
     off_by_one.write_text("def cap(data):\n    return data[:199]\n", encoding="utf-8")
     result = run_tests(find_case("02"), off_by_one, profile="fast")
     assert not result.passed
-    assert any("property" not in f.test and f.falsifying for f in result.failures) or result.failures
+    failing = {f.test: f for f in result.failures}
+    assert "test_is_a_prefix_of_at_most_200_characters" in failing
+    assert failing["test_is_a_prefix_of_at_most_200_characters"].falsifying, "the breaking input must be reported"
 
 
 def test_a_missing_file_is_an_error_not_a_pass(tmp_path):

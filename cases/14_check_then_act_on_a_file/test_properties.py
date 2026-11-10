@@ -10,4 +10,4 @@ def test_second_write_never_changes_the_file(impl, first, second):
         p = pathlib.Path(d) / "f.txt"
         assert impl.write_if_absent(str(p), first) is True
         assert impl.write_if_absent(str(p), second) is False
-        assert p.read_text(encoding="utf-8") == first
+        assert p.read_bytes().decode("utf-8") == first  # exact bytes: no newline translation

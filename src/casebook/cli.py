@@ -84,6 +84,11 @@ def _cmd_report(args: argparse.Namespace) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
     p = argparse.ArgumentParser(prog="casebook", description=__doc__)
     p.add_argument("--version", action="version", version=f"casebook {__version__}")
     sub = p.add_subparsers(dest="cmd", required=True)

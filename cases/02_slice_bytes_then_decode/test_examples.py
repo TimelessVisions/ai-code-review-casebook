@@ -1,5 +1,7 @@
-def test_multibyte_text_does_not_crash(impl):
-    assert len(impl.cap("é" * 150)) <= 200
+def test_multibyte_character_at_the_cut_does_not_crash(impl):
+    # "a" shifts every 2-byte "é" by one, so byte 200 falls inside a character.
+    s = "a" + "é" * 150
+    assert impl.cap(s) == s  # 151 characters: under the cap, returned whole
 
 
 def test_caps_characters_not_bytes(impl):

@@ -8,7 +8,7 @@ Task given to the model: "cap a log message at 200 characters."
 
 **What is wrong:** it slices the UTF-8 bytes and then decodes. A multi-byte character (`é`, an emoji) that straddles byte 200 is cut in half and `decode()` raises `UnicodeDecodeError`. It also caps bytes, not characters, so it is not what was asked.
 
-**Input that breaks it:** `"é" * 150` (300 bytes; byte 200 is mid-character).
+**Inputs that break it:** `"a" + "é" * 150` raises `UnicodeDecodeError` (the leading `a` puts byte 200 in the middle of an `é`). `"é" * 150` does not crash, because every `é` is 2 bytes and the cut lands on a boundary, but it returns 100 characters instead of 150, so it is still wrong.
 
 **Fix:** slice the string: `data[:200]`. If a byte limit is genuinely required, decode with `errors="ignore"` after slicing, and say so.
 

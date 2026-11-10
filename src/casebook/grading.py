@@ -33,11 +33,18 @@ class GradeResult:
 
 
 def _falsifying(text: str) -> str | None:
-    """Hypothesis prints the minimal breaking input as 'Falsifying example: ...'."""
-    m = re.search(r"Falsifying example:.*?(?=\n\S|\Z)", text, re.S)
+    """Hypothesis reports the shrunk breaking input as 'Falsifying example:' or 'Failing test case:'."""
+    m = re.search(r"(?:Falsifying example|Failing test case):[^\n]*\n(.*)", text, re.S)
     if not m:
         return None
-    return " ".join(m.group(0).split())[:600]
+    args = []
+    for raw in m.group(1).splitlines():
+        line = re.sub(r"^[E|\s]+", "", raw).strip()
+        if not line or line == ")" or line.startswith(")"):
+            break
+        if re.match(r"^[A-Za-z_]\w*=", line) and not line.startswith(("impl=", "buggy_mod=", "fixed_mod=")):
+            args.append(re.sub(r"\s+#.*$", "", line).rstrip(","))
+    return ", ".join(args)[:600] or None
 
 
 def _short_message(message: str, text: str) -> str:
