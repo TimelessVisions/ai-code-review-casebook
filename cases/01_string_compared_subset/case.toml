@@ -1,0 +1,7 @@
+id = "01"
+title = "A security check that compares values as strings"
+function = "is_subset"
+severity = "high"
+cwe = "CWE-1025"
+origin = "real"
+source = "Found reviewing AI-written code for agent-trust-plane's argument_subset_of rule; fixed before v0.4.0."

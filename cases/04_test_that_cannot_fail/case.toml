@@ -1,0 +1,7 @@
+id = "04"
+title = "\"All tests pass\" from a test that cannot fail"
+function = "parse"
+severity = "medium"
+cwe = "CWE-1164"
+origin = "real"
+source = "The pattern behind a false green in mcp-failure-lab, where checks asserted nothing."

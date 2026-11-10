@@ -1,0 +1,7 @@
+id = "02"
+title = "Cap a message at 200 characters by slicing bytes"
+function = "cap"
+severity = "medium"
+cwe = "CWE-135"
+origin = "real"
+source = "Found in AI-written code in agent-trust-plane (also present in released 0.3.2); fixed in 0.4.0."

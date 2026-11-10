@@ -1,5 +1,7 @@
 # A security check that compares values as strings
 
+**Severity:** high · **Weakness:** CWE-1025 · **Origin:** found in my projects
+
 Task given to the model: "return True only if every item is in allowed."
 
 **Verdict:** reject.
@@ -12,4 +14,4 @@ Task given to the model: "return True only if every item is in allowed."
 
 **Fix:** compare type and value: `type(i) is type(a) and i == a`.
 
-_Origin: Found in review of AI-written code for agent-trust-plane's `argument_subset_of` rule, and fixed before the 0.4.0 release._
+_Source: Found reviewing AI-written code for agent-trust-plane's argument_subset_of rule; fixed before v0.4.0._

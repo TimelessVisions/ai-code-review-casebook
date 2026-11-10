@@ -1,14 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "ai-code-review-casebook"
 version = "0.1.0"
-description = "Real bugs that AI coding agents shipped, each with a failing test, a fix and a written evaluation."
+description = "Grade AI-written fixes against real bug cases: example tests, property tests and mutation checks."
+readme = "README.md"
 requires-python = ">=3.12"
 license = { text = "MIT" }
-dependencies = []
+dependencies = ["pytest>=8", "hypothesis>=6.100"]
+
+[project.scripts]
+casebook = "casebook.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/casebook"]
 
 [dependency-groups]
-dev = ["pytest>=8"]
+dev = ["pytest>=8", "hypothesis>=6.100"]
 
 [tool.pytest.ini_options]
-testpaths = ["cases", "test_buggy_versions_fail.py"]
+testpaths = ["tests"]
 addopts = "--import-mode=importlib"

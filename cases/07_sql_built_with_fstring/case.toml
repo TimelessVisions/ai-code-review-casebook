@@ -1,0 +1,7 @@
+id = "07"
+title = "SQL query built with an f-string"
+function = "find_user"
+severity = "critical"
+cwe = "CWE-89"
+origin = "classic"
+source = "Classic pattern, widely documented (OWASP, CWE-89). Not found in my projects."

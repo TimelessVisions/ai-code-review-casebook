@@ -1,0 +1,7 @@
+id = "13"
+title = "A name check with catastrophic regex backtracking"
+function = "is_valid_name"
+severity = "high"
+cwe = "CWE-1333"
+origin = "classic"
+source = "Classic pattern, widely documented (CWE-1333, ReDoS). Not found in my projects."

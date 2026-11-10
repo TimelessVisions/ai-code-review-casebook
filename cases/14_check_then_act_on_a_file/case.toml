@@ -1,0 +1,7 @@
+id = "14"
+title = "Check-then-act when creating a file"
+function = "write_if_absent"
+severity = "high"
+cwe = "CWE-367"
+origin = "classic"
+source = "Classic pattern, widely documented (CWE-367, TOCTOU). Not found in my projects."

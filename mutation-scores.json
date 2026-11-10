@@ -1,0 +1,85 @@
+{
+  "01": {
+    "killed": 4,
+    "total": 4,
+    "survivors": []
+  },
+  "02": {
+    "killed": 2,
+    "total": 2,
+    "survivors": []
+  },
+  "03": {
+    "killed": 5,
+    "total": 8,
+    "survivors": [
+      "line 10: constant False -> True",
+      "line 11: constant True -> False",
+      "line 6: constant 48 -> 49"
+    ]
+  },
+  "04": {
+    "killed": 1,
+    "total": 1,
+    "survivors": []
+  },
+  "05": {
+    "killed": 5,
+    "total": 5,
+    "survivors": []
+  },
+  "06": {
+    "killed": 7,
+    "total": 7,
+    "survivors": []
+  },
+  "07": {
+    "killed": 3,
+    "total": 3,
+    "survivors": []
+  },
+  "08": {
+    "killed": 5,
+    "total": 6,
+    "survivors": [
+      "line 8: constant '/' -> ''"
+    ]
+  },
+  "09": {
+    "killed": 1,
+    "total": 1,
+    "survivors": []
+  },
+  "10": {
+    "killed": 4,
+    "total": 4,
+    "survivors": []
+  },
+  "11": {
+    "killed": 2,
+    "total": 2,
+    "survivors": []
+  },
+  "12": {
+    "killed": 5,
+    "total": 6,
+    "survivors": [
+      "line 7: constant 'expiry must include a timezone offset' -> ''"
+    ]
+  },
+  "13": {
+    "killed": 3,
+    "total": 3,
+    "survivors": []
+  },
+  "14": {
+    "killed": 6,
+    "total": 6,
+    "survivors": []
+  },
+  "15": {
+    "killed": 3,
+    "total": 3,
+    "survivors": []
+  }
+}

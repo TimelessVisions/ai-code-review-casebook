@@ -1,0 +1,7 @@
+id = "12"
+title = "Comparing a timezone-aware expiry with a naive now"
+function = "is_expired"
+severity = "medium"
+cwe = "CWE-1025"
+origin = "classic"
+source = "Classic pattern with Python datetimes, widely documented. Not found in my projects."

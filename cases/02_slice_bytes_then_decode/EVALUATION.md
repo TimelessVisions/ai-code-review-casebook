@@ -1,5 +1,7 @@
 # Cap a message at 200 characters by slicing bytes
 
+**Severity:** medium · **Weakness:** CWE-135 · **Origin:** found in my projects
+
 Task given to the model: "cap a log message at 200 characters."
 
 **Verdict:** reject.
@@ -10,4 +12,4 @@ Task given to the model: "cap a log message at 200 characters."
 
 **Fix:** slice the string: `data[:200]`. If a byte limit is genuinely required, decode with `errors="ignore"` after slicing, and say so.
 
-_Origin: Found in AI-written code in agent-trust-plane (also present in released 0.3.2); fixed in 0.4.0._
+_Source: Found in AI-written code in agent-trust-plane (also present in released 0.3.2); fixed in 0.4.0._

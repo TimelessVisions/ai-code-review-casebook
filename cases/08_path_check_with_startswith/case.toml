@@ -1,0 +1,7 @@
+id = "08"
+title = "Path containment checked with startswith"
+function = "is_inside"
+severity = "high"
+cwe = "CWE-22"
+origin = "classic"
+source = "Classic pattern, widely documented (CWE-22). Not found in my projects."

@@ -1,0 +1,7 @@
+id = "09"
+title = "Secret token compared with =="
+function = "check_token"
+severity = "medium"
+cwe = "CWE-208"
+origin = "classic"
+source = "Classic pattern, widely documented (CWE-208). Not found in my projects."

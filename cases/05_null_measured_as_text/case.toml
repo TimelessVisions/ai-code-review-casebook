@@ -1,0 +1,7 @@
+id = "05"
+title = "Measuring null as a short string"
+function = "within_max_length"
+severity = "high"
+cwe = "CWE-20"
+origin = "real"
+source = "Fixed in agent-trust-plane 0.4.0: argument_max_length measured an explicit null as the string \"null\"."

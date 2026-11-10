@@ -1,0 +1,7 @@
+id = "15"
+title = "A config loader that swallows every error"
+function = "load_config"
+severity = "medium"
+cwe = "CWE-390"
+origin = "classic"
+source = "Classic pattern, widely documented (CWE-390). Not found in my projects."

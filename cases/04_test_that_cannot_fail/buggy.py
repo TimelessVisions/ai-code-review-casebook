@@ -4,6 +4,7 @@ def parse(text: str) -> int:
 
 
 def test_parse_rejects_bad_input():
+    """The model's test: it passes whatever parse does."""
     try:
         parse("bad input")
     except Exception:

@@ -1,0 +1,7 @@
+id = "10"
+title = "Money converted to cents through a float"
+function = "total_cents"
+severity = "medium"
+cwe = "CWE-1339"
+origin = "classic"
+source = "Classic pattern, widely documented (CWE-1339). Not found in my projects."

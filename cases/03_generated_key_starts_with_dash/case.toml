@@ -1,0 +1,7 @@
+id = "03"
+title = "A generated key passed as a CLI argument"
+function = "make_argv"
+severity = "low"
+cwe = "CWE-88"
+origin = "real"
+source = "A 1-in-64 CLI failure fixed in agent-trust-plane: generated keys starting with '-'."

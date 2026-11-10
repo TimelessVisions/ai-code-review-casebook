@@ -1,0 +1,7 @@
+id = "06"
+title = "A 3-check probe reported as a full conformance pass"
+function = "status"
+severity = "high"
+cwe = "CWE-1164"
+origin = "real"
+source = "Found in mcp-failure-lab: a 3-check probe was recorded as an official pass while the real set fails 88 of 177 checks."
